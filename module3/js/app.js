@@ -30,8 +30,11 @@ function NarrowItDownController(MenuSearchService) {
   list.searchMenuItems = function () {
     var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
       
+    console.log("searchTerm: " + list.searchTerm);
+      
     promise.then(function (response) {
       list.found = response;
+      console.log("found: " + response.length);
     })
     .catch(function (error) {
       console.log(error);
@@ -63,8 +66,11 @@ function MenuSearchService($http, ApiBasePath) {
             
             if (searchTerm != "" && items[i].description.toLowerCase().includes(searchTerm.toLowerCase())) {
                 foundItems.push(items[i]);
+                console.log("item found: " + items[i].description)
             }
         }
+        
+        console.log("foundItems: " + foundItems.length);
             
         return foundItems;
     });
