@@ -13,12 +13,12 @@
     $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'module4/js/templates/home.template.html'
+      templateUrl: 'full-stack-course5/module4/js/templates/home.template.html'
     })
 
     .state('categories', {
       url: '/categories',
-      templateUrl: 'module4/js/templates/categories.template.html',
+      templateUrl: 'full-stack-course5/module4/js/templates/categories.template.html',
       controller: 'CategoriesController as categoriesList',
       resolve: {
         items: ['MenuDataService', function (MenuDataService) {
@@ -29,7 +29,7 @@
 
     .state('items', {
       url: '/items/{categoryShortName}',
-      templateUrl: 'module4/js/templates/items.template.html',
+      templateUrl: 'full-stack-course5/module4/js/templates/items.template.html',
       controller: "ItemsController as itemsList",
       resolve: {
         items: ['$stateParams','MenuDataService', function ($stateParams, MenuDataService) {
