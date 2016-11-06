@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>My Info</h2>
+  <div ng-if="myInfoCtrl.userData">
+    <h3>My user data:</h3>
+    <dl>
+      <dt>First Name:</dt>
+      <dd>{{myInfoCtrl.userData.firstName}}</dd>
+      <dt>Last Name:</dt>
+      <dd>{{myInfoCtrl.userData.lastName}}</dd>
+      <dt>Email:</dt>
+      <dd>{{myInfoCtrl.userData.email}}</dd>
+      <dt>Phone:</dt>
+      <dd>{{myInfoCtrl.userData.phone}}</dd>
+    </dl>
+    <h3> My favorite dish is: </h3>
+    <dl>
+      <dt>Name:</dt>
+      <dd>{{myInfoCtrl.userData.favoriteDish.name}}</dd>
+      <dt>Description:</dt>
+      <dd>{{myInfoCtrl.userData.favoriteDish.description}}</dd>
+    </dl>
+    <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.apiBase}}/images/{{myInfoCtrl.userData.favoriteDish.short_name}}.jpg" alt="{{myInfoCtrl.userData.favoriteDish.name}}">
+  </div>
+  <div ng-if="!myInfoCtrl.userData">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+</div>

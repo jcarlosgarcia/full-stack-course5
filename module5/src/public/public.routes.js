@@ -43,20 +43,9 @@ function routeConfig ($stateProvider) {
     })
     .state('public.myInfo', {
       url: '/my-info',
-      templateUrl: 'src/public/my-info/myInfo.html',
+      templateUrl: 'src/public/my-info/my-info.html',
       controller: 'MyInfoController',
-      controllerAs: 'myInfoCtrl',
-      resolve: {
-        item: ['SignUpService',
-          function (SignUpService) {
-            return SignUpService.getFavoriteDish()
-            .then(function (response) {
-              return response.data;
-            })
-            .catch(function (error) {
-            });
-          }]
-        }
+      controllerAs: 'myInfoCtrl'
     })
     .state('public.signup', {
       url: '/signup',

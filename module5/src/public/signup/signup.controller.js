@@ -10,13 +10,14 @@ function SignUpController(SignUpService) {
 
   signup.submit = function () {
     
-    signup.erroMsg = "";
-    signup.saveMsg = "";
+    signup.msg = "";
     
-    SignUpService.getFavoriteDishDescription(signup.user.short_name)
+    SignUpService.getDish(signup.user.short_name)
       .then(function (response) {
-        signup.items = response.data;
-        SignUpService.saveFavoriteDish(signup.user.short_name);
+        signup.user.favoriteDish = response.data;
+        console.log("items: " + signup.user.firstname + " - " + signup.user.short_name + " - " + signup.user.favoriteDish.description);
+        //SignUpService.saveFavoriteDish(signup.user.short_name);
+        SignUpService.saveUserData(signup.user);
         signup.msg = "Your data has been saved";
       })
       .catch(function (error) {
