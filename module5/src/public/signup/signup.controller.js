@@ -16,7 +16,7 @@ function SignUpController(SignUpService) {
       .then(function (response) {
         signup.user.favoriteDish = response.data;
         console.log("items: " + signup.user.firstname + " - " + signup.user.short_name + " - " + signup.user.favoriteDish.description);
-        //SignUpService.saveFavoriteDish(signup.user.short_name);
+        
         SignUpService.saveUserData(signup.user);
         signup.msg = "Your data has been saved";
       })
